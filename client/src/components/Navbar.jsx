@@ -1,5 +1,6 @@
 import { Link, useNavigate } from 'react-router-dom'
 import { useAuthStore } from '../store/authStore'
+import { motion } from 'framer-motion'
 
 export default function Navbar() {
     const { user, logout } = useAuthStore()
@@ -11,10 +12,12 @@ export default function Navbar() {
     }
 
     return (
-        <nav className="bg-gray-900 border-b border-gray-800 px-6 py-4">
+        <nav className="bg-white/10 backdrop-blur-md border-b border-white/20 px-6 py-4">
             <div className="max-w-7xl mx-auto flex items-center justify-between">
-                <Link to="/" className="text-green-400 font-bold text-xl">
-                    ⛳ GolfCharity
+                <Link to="/" className="font-bold text-xl flex items-center gap-1">
+                    <span>⛳</span>
+                    <span className="text-amber-400">Golf</span>
+                    <span className="text-white">Charity</span>
                 </Link>
 
                 <div className="flex items-center gap-6">
@@ -22,42 +25,44 @@ export default function Navbar() {
                         <>
                             <Link
                                 to="/dashboard"
-                                className="text-gray-300 hover:text-white text-sm transition-colors"
-                            >
+                                className="text-white hover:text-amber-400 text-sm transition-colors font-medium"                            >
                                 Dashboard
                             </Link>
                             {user.role === 'admin' && (
                                 <Link
                                     to="/admin"
-                                    className="text-yellow-400 hover:text-yellow-300 text-sm transition-colors"
+                                    className="text-amber-400 hover:text-amber-300 text-sm transition-colors"
                                 >
                                     Admin
                                 </Link>
                             )}
-                            <span className="text-gray-500 text-sm">{user.email}</span>
-                            <button
+                            <span className="text-white text-sm font-medium">{user.email}</span>                            <motion.button
                                 onClick={handleLogout}
-                                className="bg-gray-800 hover:bg-gray-700 text-white text-sm 
-                px-4 py-2 rounded-lg transition-colors"
+                                className="bg-white/15 backdrop-blur-sm border border-white/30 text-white font-semibold rounded-xl px-6 py-3"
+                                whileHover={{ scale: 1.05, rotate: [0, -1, 1, -1, 0] }}
+                                whileTap={{ scale: 0.97 }}
+                                transition={{ duration: 0.3 }}
                             >
                                 Logout
-                            </button>
+                            </motion.button>
                         </>
                     ) : (
                         <>
                             <Link
                                 to="/login"
-                                className="text-gray-300 hover:text-white text-sm transition-colors"
+                                className="text-white/70 hover:text-white text-sm transition-colors"
                             >
                                 Login
                             </Link>
-                            <Link
-                                to="/signup"
-                                className="bg-green-500 hover:bg-green-400 text-black font-semibold 
-                text-sm px-4 py-2 rounded-lg transition-colors"
-                            >
-                                Sign Up
-                            </Link>
+                            <motion.div whileHover={{ scale: 1.05, rotate: [0, -1, 1, -1, 0] }} whileTap={{ scale: 0.97 }} transition={{ duration: 0.3 }}>
+                                <Link
+                                    to="/signup"
+                                    className="bg-white/15 backdrop-blur-sm border border-white/30 text-white font-semibold rounded-xl px-6 py-3 inline-block"
+                                    style={{ boxShadow: '0 0 20px rgba(245,158,11,0.3)' }}
+                                >
+                                    Sign Up
+                                </Link>
+                            </motion.div>
                         </>
                     )}
                 </div>

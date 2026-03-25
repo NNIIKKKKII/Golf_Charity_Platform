@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { motion } from 'framer-motion'
 import api from '../../services/api'
 
 export default function DrawSection() {
@@ -42,7 +43,7 @@ export default function DrawSection() {
     }
 
     return (
-        <div className="bg-gray-900 rounded-2xl p-6 border border-gray-800">
+        <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6">
             <h2 className="text-white text-xl font-bold mb-6">Draw Management</h2>
 
             {error && (
@@ -53,91 +54,95 @@ export default function DrawSection() {
             )}
 
             {/* Run draw form */}
-            <div className="bg-gray-800 rounded-xl p-4 mb-6">
+            <div className="bg-white/5 backdrop-blur-sm rounded-xl p-4 mb-6">
                 <h3 className="text-white font-semibold mb-4">Run New Draw</h3>
                 <div className="grid grid-cols-2 gap-3 mb-4">
                     <div>
-                        <label className="text-gray-400 text-xs mb-1 block">Month</label>
+                        <label className="text-white/60 text-xs mb-1 block">Month</label>
                         <input
                             type="number"
                             min="1"
                             max="12"
                             value={form.month}
                             onChange={(e) => setForm({ ...form, month: parseInt(e.target.value) })}
-                            className="w-full bg-gray-700 text-white rounded-lg px-3 py-2
-              text-sm border border-gray-600 outline-none focus:border-green-500"
+                            className="w-full bg-white/10 border border-white/20 text-white placeholder-white/40 rounded-xl px-3 py-2 text-sm outline-none focus:border-amber-400 backdrop-blur-sm"
                         />
                     </div>
                     <div>
-                        <label className="text-gray-400 text-xs mb-1 block">Year</label>
+                        <label className="text-white/60 text-xs mb-1 block">Year</label>
                         <input
                             type="number"
                             value={form.year}
                             onChange={(e) => setForm({ ...form, year: parseInt(e.target.value) })}
-                            className="w-full bg-gray-700 text-white rounded-lg px-3 py-2
-              text-sm border border-gray-600 outline-none focus:border-green-500"
+                            className="w-full bg-white/10 border border-white/20 text-white placeholder-white/40 rounded-xl px-3 py-2 text-sm outline-none focus:border-amber-400 backdrop-blur-sm"
                         />
                     </div>
                     <div>
-                        <label className="text-gray-400 text-xs mb-1 block">Draw Type</label>
+                        <label className="text-white/60 text-xs mb-1 block">Draw Type</label>
                         <select
                             value={form.draw_type}
                             onChange={(e) => setForm({ ...form, draw_type: e.target.value })}
-                            className="w-full bg-gray-700 text-white rounded-lg px-3 py-2
-              text-sm border border-gray-600 outline-none focus:border-green-500"
+                            className="w-full bg-white/10 border border-white/20 text-white placeholder-white/40 rounded-xl px-3 py-2 text-sm outline-none focus:border-amber-400 backdrop-blur-sm"
                         >
                             <option value="random">Random</option>
                             <option value="algorithmic">Algorithmic</option>
                         </select>
                     </div>
                     <div>
-                        <label className="text-gray-400 text-xs mb-1 block">Status</label>
+                        <label className="text-white/60 text-xs mb-1 block">Status</label>
                         <select
                             value={form.status}
                             onChange={(e) => setForm({ ...form, status: e.target.value })}
-                            className="w-full bg-gray-700 text-white rounded-lg px-3 py-2
-              text-sm border border-gray-600 outline-none focus:border-green-500"
+                            className="w-full bg-white/10 border border-white/20 text-white placeholder-white/40 rounded-xl px-3 py-2 text-sm outline-none focus:border-amber-400 backdrop-blur-sm"
                         >
                             <option value="simulation">Simulation</option>
                             <option value="published">Published</option>
                         </select>
                     </div>
                 </div>
-                <button
+                <motion.button
                     onClick={handleRunDraw}
                     disabled={running}
-                    className="w-full bg-green-500 hover:bg-green-400 disabled:opacity-50
-          text-black font-semibold py-3 rounded-xl transition-colors"
+                    className="w-full bg-white/15 backdrop-blur-sm border border-white/30 text-white font-semibold py-3 rounded-xl disabled:opacity-50"
+                    style={{ boxShadow: '0 0 20px rgba(245,158,11,0.3)' }}
+                    whileHover={{ scale: 1.05, rotate: [0, -1, 1, -1, 0] }}
+                    whileTap={{ scale: 0.97 }}
+                    transition={{ duration: 0.3 }}
                 >
                     {running ? 'Running...' : 'Run Draw'}
-                </button>
+                </motion.button>
             </div>
 
             {/* Draws list */}
             {loading ? (
-                <p className="text-gray-400 text-sm">Loading draws...</p>
+                <p className="text-white/60 text-sm">Loading draws...</p>
             ) : draws.length === 0 ? (
-                <p className="text-gray-500 text-sm">No draws yet.</p>
+                <p className="text-white/60 text-sm">No draws yet.</p>
             ) : (
                 <div className="space-y-3">
                     {draws.map((d) => (
-                        <div key={d.id} className="bg-gray-800 rounded-xl p-4">
+                        <div key={d.id} className="bg-white/5 backdrop-blur-sm rounded-xl p-4">
                             <div className="flex items-center justify-between mb-2">
                                 <p className="text-white font-semibold">
                                     {d.month}/{d.year} — {d.draw_type}
                                 </p>
                                 <span className={`text-xs px-2 py-1 rounded-full font-medium ${d.status === 'published'
-                                    ? 'bg-green-500/20 text-green-400'
-                                    : 'bg-yellow-500/20 text-yellow-400'
+                                    ? 'bg-green-500/20 text-green-300'
+                                    : 'bg-amber-500/20 text-amber-400'
                                     }`}>
                                     {d.status}
                                 </span>
                             </div>
-                            <p className="text-gray-400 text-sm">
-                                Winning numbers: {d.drawn_numbers?.join(', ')}
-                            </p>
+                            <div className="flex gap-2 flex-wrap">
+                                <span className="text-white/60 text-sm">Winning numbers:</span>
+                                {d.drawn_numbers?.map((num, i) => (
+                                    <span key={i} className="bg-amber-500/20 text-amber-400 px-2 py-1 rounded-lg text-xs font-semibold">
+                                        {num}
+                                    </span>
+                                ))}
+                            </div>
                             {d.jackpot_amount > 0 && (
-                                <p className="text-yellow-400 text-xs mt-1">
+                                <p className="text-amber-400 text-xs mt-1">
                                     Jackpot carried: £{d.jackpot_amount}
                                 </p>
                             )}

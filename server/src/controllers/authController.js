@@ -24,6 +24,10 @@ export const signup = async (req, res) => {
         }
 
         console.log('Sending response...')
+
+        sendEmail(welcomeEmail(email))
+
+
         return res.status(201).json({
             message: 'User created successfully',
             user: data.user

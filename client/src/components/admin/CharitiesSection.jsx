@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { motion } from 'framer-motion'
 import api from '../../services/api'
 
 export default function CharitiesSection() {
@@ -48,7 +49,7 @@ export default function CharitiesSection() {
     }
 
     return (
-        <div className="bg-gray-900 rounded-2xl p-6 border border-gray-800">
+        <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6">
             <h2 className="text-white text-xl font-bold mb-6">Charities</h2>
 
             {error && (
@@ -59,7 +60,7 @@ export default function CharitiesSection() {
             )}
 
             {/* Add charity form */}
-            <form onSubmit={handleAdd} className="bg-gray-800 rounded-xl p-4 mb-6 space-y-3">
+            <form onSubmit={handleAdd} className="bg-white/5 backdrop-blur-sm rounded-xl p-4 mb-6 space-y-3">
                 <h3 className="text-white font-semibold">Add Charity</h3>
                 <input
                     type="text"
@@ -67,49 +68,49 @@ export default function CharitiesSection() {
                     value={form.name}
                     onChange={(e) => setForm({ ...form, name: e.target.value })}
                     required
-                    className="w-full bg-gray-700 text-white rounded-lg px-3 py-2
-          text-sm border border-gray-600 outline-none focus:border-green-500"
+                    className="w-full bg-white/10 border border-white/20 text-white placeholder-white/40 rounded-xl px-3 py-2 text-sm outline-none focus:border-amber-400 backdrop-blur-sm"
                 />
                 <textarea
                     placeholder="Description"
                     value={form.description}
                     onChange={(e) => setForm({ ...form, description: e.target.value })}
                     rows={2}
-                    className="w-full bg-gray-700 text-white rounded-lg px-3 py-2
-          text-sm border border-gray-600 outline-none focus:border-green-500 resize-none"
+                    className="w-full bg-white/10 border border-white/20 text-white placeholder-white/40 rounded-xl px-3 py-2 text-sm outline-none focus:border-amber-400 backdrop-blur-sm resize-none"
                 />
-                <label className="flex items-center gap-2 text-gray-400 text-sm cursor-pointer">
+                <label className="flex items-center gap-2 text-white/60 text-sm cursor-pointer">
                     <input
                         type="checkbox"
                         checked={form.is_featured}
                         onChange={(e) => setForm({ ...form, is_featured: e.target.checked })}
-                        className="accent-green-500"
+                        className="accent-amber-400"
                     />
                     Featured charity
                 </label>
-                <button
+                <motion.button
                     type="submit"
                     disabled={adding}
-                    className="w-full bg-green-500 hover:bg-green-400 disabled:opacity-50
-          text-black font-semibold py-2 rounded-xl text-sm transition-colors"
+                    className="w-full bg-white/15 backdrop-blur-sm border border-white/30 text-white font-semibold py-2 rounded-xl text-sm disabled:opacity-50"
+                    whileHover={{ scale: 1.05, rotate: [0, -1, 1, -1, 0] }}
+                    whileTap={{ scale: 0.97 }}
+                    transition={{ duration: 0.3 }}
                 >
                     {adding ? 'Adding...' : 'Add Charity'}
-                </button>
+                </motion.button>
             </form>
 
             {/* Charities list */}
             {loading ? (
-                <p className="text-gray-400 text-sm">Loading...</p>
+                <p className="text-white/60 text-sm">Loading...</p>
             ) : (
                 <div className="space-y-3">
                     {charities.map((c) => (
-                        <div key={c.id} className="bg-gray-800 rounded-xl p-4
+                        <div key={c.id} className="bg-white/5 backdrop-blur-sm rounded-xl p-4
             flex items-center justify-between">
                             <div>
                                 <p className="text-white font-semibold">{c.name}</p>
-                                <p className="text-gray-400 text-sm">{c.description}</p>
+                                <p className="text-white/60 text-sm">{c.description}</p>
                                 {c.is_featured && (
-                                    <span className="text-yellow-400 text-xs">⭐ Featured</span>
+                                    <span className="text-amber-400 text-xs">⭐ Featured</span>
                                 )}
                             </div>
                             <button

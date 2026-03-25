@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import { useAuthStore } from '../store/authStore'
 import { useNavigate, Link } from 'react-router-dom'
+import { motion } from 'framer-motion'
+import Layout from '../components/Layout'
 
 export default function LoginPage() {
     const [email, setEmail] = useState('')
@@ -20,64 +22,70 @@ export default function LoginPage() {
     }
 
     return (
-        <div className="min-h-screen bg-gray-950 flex items-center justify-center px-4">
-            <div className="w-full max-w-md bg-gray-900 rounded-2xl p-8 shadow-xl">
-                <h1 className="text-3xl font-bold text-white mb-2">Welcome Back</h1>
-                <p className="text-gray-400 mb-8">Log in to your account</p>
+        <Layout>
+            <div className="min-h-screen flex items-center justify-center px-4">
+                <motion.div
+                    initial={{ y: 40, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ duration: 0.5 }}
+                    className="w-full max-w-md bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl p-10"
+                >
+                    <h1 className="text-3xl font-bold text-white mb-2">Welcome Back</h1>
+                    <p className="text-white/60 mb-8">Log in to your account</p>
 
-                {error && (
-                    <div className="bg-red-500/10 border border-red-500 text-red-400 
+                    {error && (
+                        <div className="bg-red-500/10 border border-red-500 text-red-400
           rounded-lg px-4 py-3 mb-6 text-sm">
-                        {error}
-                    </div>
-                )}
+                            {error}
+                        </div>
+                    )}
 
-                <form onSubmit={handleSubmit} className="space-y-5">
-                    <div>
-                        <label className="text-sm text-gray-400 mb-1 block">Email</label>
-                        <input
-                            type="email"
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
-                            required
-                            className="w-full bg-gray-800 text-white rounded-lg px-4 py-3 
-              outline-none border border-gray-700 focus:border-green-500 
-              transition-colors"
-                            placeholder="you@example.com"
-                        />
-                    </div>
+                    <form onSubmit={handleSubmit} className="space-y-5">
+                        <div>
+                            <label className="text-sm text-white/60 mb-1 block">Email</label>
+                            <input
+                                type="email"
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
+                                required
+                                className="w-full bg-white/10 border border-white/20 text-white placeholder-white/40 rounded-xl px-4 py-3 focus:border-amber-400 outline-none backdrop-blur-sm"
+                                placeholder="you@example.com"
+                            />
+                        </div>
 
-                    <div>
-                        <label className="text-sm text-gray-400 mb-1 block">Password</label>
-                        <input
-                            type="password"
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}
-                            required
-                            className="w-full bg-gray-800 text-white rounded-lg px-4 py-3 
-              outline-none border border-gray-700 focus:border-green-500 
-              transition-colors"
-                            placeholder="Your password"
-                        />
-                    </div>
+                        <div>
+                            <label className="text-sm text-white/60 mb-1 block">Password</label>
+                            <input
+                                type="password"
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
+                                required
+                                className="w-full bg-white/10 border border-white/20 text-white placeholder-white/40 rounded-xl px-4 py-3 focus:border-amber-400 outline-none backdrop-blur-sm"
+                                placeholder="Your password"
+                            />
+                        </div>
 
-                    <button
-                        type="submit"
-                        disabled={localLoading}
-                        className="w-full bg-green-500 hover:bg-green-400 disabled:opacity-50 
-            text-black font-semibold rounded-lg px-4 py-3 transition-colors"
-                    >
-                        {localLoading ? 'Logging in...' : 'Log In'}
-                    </button>
-                </form>
+                        <motion.button
+                            type="submit"
+                            disabled={localLoading}
+                            className="w-full bg-white/15 backdrop-blur-sm border border-white/30 text-white font-semibold rounded-xl px-6 py-3 disabled:opacity-50"
+                            style={{ boxShadow: '0 0 20px rgba(245,158,11,0.3)' }}
+                            whileHover={{ scale: 1.05, rotate: [0, -1, 1, -1, 0] }}
+                            whileTap={{ scale: 0.97 }}
+                            transition={{ duration: 0.3 }}
+                        >
+                            {localLoading ? 'Logging in...' : 'Log In'}
+                        </motion.button>
+                    </form>
 
-                <p className="text-gray-400 text-sm text-center mt-6">
-                    Don't have an account?{' '}
-                    <Link to="/signup" className="text-green-400 hover:underline">
-                        Sign up
-                    </Link>
-                </p>
+                    <p className="text-white/60 text-sm text-center mt-6">
+                        Don't have an account?{' '}
+                        <Link to="/signup" className="text-amber-400 hover:underline">
+                            Sign up
+                        </Link>
+                    </p>
+                </motion.div>
             </div>
-        </div>
+        </Layout>
     )
 }
