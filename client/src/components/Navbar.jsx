@@ -3,9 +3,9 @@ import { useAuthStore } from '../store/authStore'
 import { motion } from 'framer-motion'
 
 export default function Navbar() {
-    const { user, logout } = useAuthStore()
-    const navigate = useNavigate()
-
+    const { user, logout } = useAuthStore();
+    const navigate = useNavigate();
+    console.log("Current User State:", user);
     const handleLogout = () => {
         logout()
         navigate('/login')
@@ -28,10 +28,10 @@ export default function Navbar() {
                                 className="text-white hover:text-amber-400 text-sm transition-colors font-medium"                            >
                                 Dashboard
                             </Link>
-                            {user.role === 'admin' && (
+                            {user && user.role === 'admin' && (
                                 <Link
                                     to="/admin"
-                                    className="text-amber-400 hover:text-amber-300 text-sm transition-colors"
+                                    className="text-white hover:text-amber-400 text-sm transition-colors font-medium"
                                 >
                                     Admin
                                 </Link>

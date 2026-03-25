@@ -5,19 +5,22 @@ import { motion } from 'framer-motion'
 import Layout from '../components/Layout'
 
 export default function LoginPage() {
-    const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('')
-    const [localLoading, setLocalLoading] = useState(false)
-    const { login, error } = useAuthStore()
-    const navigate = useNavigate()
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [localLoading, setLocalLoading] = useState(false);
+    const { login, error } = useAuthStore();
+    const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
         e.preventDefault()
         setLocalLoading(true)
         const result = await login(email, password)
         setLocalLoading(false)
+
         if (result.success) {
-            navigate('/dashboard')
+            // Make sure these are on separate lines!
+            const store = useAuthStore.getState()
+            navigate(store.user?.role === 'admin' ? '/admin' : '/dashboard')
         }
     }
 

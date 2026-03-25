@@ -50,8 +50,10 @@ export default function UsersSection() {
                                 <td className="py-3 pr-4 text-white">{u.email}</td>
                                 <td className="py-3 pr-4">
                                     <span className={`px-2 py-1 rounded-full text-xs font-medium ${u.role === 'admin'
-                                        ? 'bg-amber-500/20 text-amber-400'
-                                        : 'bg-white/10 text-white/50'
+                                            ? 'bg-amber-500/20 text-amber-400'
+                                            : u.role === 'subscriber'
+                                                ? 'bg-green-500/20 text-green-400'
+                                                : 'bg-white/10 text-white/50'
                                         }`}>
                                         {u.role}
                                     </span>

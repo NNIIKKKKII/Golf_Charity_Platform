@@ -197,10 +197,9 @@ export default function HomePage() {
                             transition={{ delay: index * 0.1 }}
                             className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 text-center"
                         >
-                            <div className={`text-6xl font-bold mb-3 ${
-                                tier.color === 'amber' ? 'text-amber-400' :
+                            <div className={`text-6xl font-bold mb-3 ${tier.color === 'amber' ? 'text-amber-400' :
                                 tier.color === 'white' ? 'text-white' : 'text-green-300'
-                            }`}>
+                                }`}>
                                 {tier.share}
                             </div>
                             <div className="text-white font-semibold text-xl mb-2">{tier.match}</div>
@@ -226,15 +225,17 @@ export default function HomePage() {
                         Choose from our partner charities and watch your passion for golf
                         create lasting impact in communities around the world.
                     </p>
-                    <motion.button
-                        className="bg-white/15 backdrop-blur-sm border border-white/30 text-white font-semibold rounded-xl px-8 py-4"
-                        style={{ boxShadow: '0 0 20px rgba(134,239,172,0.3)' }}
-                        whileHover={{ scale: 1.05, rotate: [0, -1, 1, -1, 0] }}
-                        whileTap={{ scale: 0.97 }}
-                        transition={{ duration: 0.3 }}
-                    >
-                        See Our Charities
-                    </motion.button>
+                    <Link to="/charities">
+                        <motion.button
+                            className="bg-white/15 backdrop-blur-sm border border-white/30 text-white font-semibold rounded-xl px-8 py-4"
+                            style={{ boxShadow: '0 0 20px rgba(134,239,172,0.3)' }}
+                            whileHover={{ scale: 1.05, rotate: [0, -1, 1, -1, 0] }}
+                            whileTap={{ scale: 0.97 }}
+                            transition={{ duration: 0.3 }}
+                        >
+                            See Our Charities
+                        </motion.button>
+                    </Link>
                 </motion.div>
             </section>
 
