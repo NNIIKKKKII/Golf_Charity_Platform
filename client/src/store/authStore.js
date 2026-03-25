@@ -26,8 +26,15 @@ export const useAuthStore = create((set) => ({
             const res = await axios.post(`${API_URL}/api/auth/login`, { email, password })
             const { session, user } = res.data
             localStorage.setItem('session', JSON.stringify(session))
-            set({ session, user, loading: false })
-            return { success: true }
+
+            // Fetch full profile to get role
+            const profileRes = await axios.get(`${API_URL}/api/auth/me`, {
+                headers: { Authorization: `Bearer ${session.access_token}` }
+            })
+            const profile = profileRes.data.user
+
+            set({ session, user: profile, loading: false })
+            return { success: true, role: profile.role }
         } catch (err) {
             set({ error: err.response?.data?.error || 'Login failed' })
             return { success: false }

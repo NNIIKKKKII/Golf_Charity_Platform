@@ -18,9 +18,7 @@ export default function LoginPage() {
         setLocalLoading(false)
 
         if (result.success) {
-            // Make sure these are on separate lines!
-            const store = useAuthStore.getState()
-            navigate(store.user?.role === 'admin' ? '/admin' : '/dashboard')
+            navigate(result.role === 'admin' ? '/admin' : '/dashboard')
         }
     }
 
