@@ -7,6 +7,7 @@ import HomePage from './pages/HomePage'
 import DashboardPage from './pages/DashboardPage'
 import AdminPage from './pages/AdminPage'
 import CharitiesPage from './pages/CharitiesPage'
+import HowItWorksPage from './pages/HowItWorksPage'
 
 function ProtectedRoute({ children }) {
   const { session, loading } = useAuthStore()
@@ -47,6 +48,7 @@ function App() {
         <Route path="/signup" element={<SignupPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/charities" element={<CharitiesPage />} />
+        <Route path="/how-it-works" element={<HowItWorksPage />} />
         <Route path="/dashboard" element={
           <ProtectedRoute>
             <DashboardPage />

@@ -21,6 +21,21 @@ export default function Navbar() {
                 </Link>
 
                 <div className="flex items-center gap-6">
+                    <Link
+                        to="/charities"
+                        className="text-white/80 hover:text-white text-sm transition-colors font-medium"
+                    >
+                        Charities
+                    </Link>
+                    <Link
+                        to="/how-it-works"
+                        className="text-white/80 hover:text-white text-sm transition-colors font-medium"
+                    >
+                        How It Works
+                    </Link>
+                </div>
+
+                <div className="flex items-center gap-6">
                     {user ? (
                         <>
                             <Link
