@@ -72,7 +72,7 @@ export default function SubscriptionSection() {
                         </span>
                     </div>
 
-                    <div className="grid grid-cols-2 gap-4">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div className="bg-white/5 backdrop-blur-sm rounded-xl p-4">
                             <p className="text-white/70 text-xs mb-1">Renewal Date</p>
                             <p className="text-white font-semibold">
@@ -94,7 +94,7 @@ export default function SubscriptionSection() {
                     <p className="text-white/60">
                         You don't have an active subscription.
                     </p>
-                    <div className="grid grid-cols-2 gap-4">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <motion.button
                             onClick={() => {
                                 setSelectedPlan('monthly')

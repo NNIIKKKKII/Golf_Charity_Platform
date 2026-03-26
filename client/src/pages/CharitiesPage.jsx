@@ -27,7 +27,7 @@ export default function CharitiesPage() {
     return (
         <Layout>
             <Navbar />
-            <div className="max-w-7xl mx-auto px-6 py-16">
+            <div className="max-w-7xl mx-auto px-4 md:px-6 py-16">
 
                 {/* Header */}
                 <motion.div
@@ -40,7 +40,7 @@ export default function CharitiesPage() {
           text-sm font-medium px-4 py-2 rounded-full mb-6">
                         Making a difference
                     </div>
-                    <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
+                    <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
                         Our <span className="text-green-300">Charities</span>
                     </h1>
                     <p className="text-white/60 text-xl max-w-2xl mx-auto">
@@ -59,7 +59,7 @@ export default function CharitiesPage() {
                         No charities listed yet.
                     </div>
                 ) : (
-                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                         {charities.map((charity, index) => (
                             <motion.div
                                 key={charity.id}
@@ -119,7 +119,7 @@ export default function CharitiesPage() {
                     className="text-center mt-20"
                 >
                     <div className="bg-white/10 backdrop-blur-md border border-white/20
-          rounded-2xl p-10 max-w-2xl mx-auto">
+          rounded-2xl p-6 md:p-10 max-w-2xl mx-auto">
                         <h2 className="text-white text-3xl font-bold mb-4">
                             Ready to make a difference?
                         </h2>

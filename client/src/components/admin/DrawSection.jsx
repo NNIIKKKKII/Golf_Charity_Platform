@@ -56,7 +56,7 @@ export default function DrawSection() {
             {/* Run draw form */}
             <div className="bg-white/5 backdrop-blur-sm rounded-xl p-4 mb-6">
                 <h3 className="text-white font-semibold mb-4">Run New Draw</h3>
-                <div className="grid grid-cols-2 gap-3 mb-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-4">
                     <div>
                         <label className="text-white/60 text-xs mb-1 block">Month</label>
                         <input

@@ -105,7 +105,7 @@ export default function CharitiesSection() {
                 <div className="space-y-3">
                     {charities.map((c) => (
                         <div key={c.id} className="bg-white/5 backdrop-blur-sm rounded-xl p-4
-            flex items-center justify-between">
+            flex flex-col md:flex-row md:items-center justify-between gap-3">
                             <div>
                                 <p className="text-white font-semibold">{c.name}</p>
                                 <p className="text-white/60 text-sm">{c.description}</p>
@@ -116,7 +116,7 @@ export default function CharitiesSection() {
                             <button
                                 onClick={() => handleDelete(c.id)}
                                 className="text-red-400 hover:text-red-300 text-sm
-                transition-colors ml-4"
+                transition-colors self-start md:ml-4"
                             >
                                 Delete
                             </button>

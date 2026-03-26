@@ -7,7 +7,7 @@ export default function HowItWorksPage() {
     return (
         <Layout>
             <Navbar />
-            <div className="max-w-5xl mx-auto px-6 py-16 space-y-16">
+            <div className="max-w-5xl mx-auto px-4 md:px-6 py-16 space-y-16">
                 {/* HERO SECTION */}
                 <motion.div
                     className="text-center"
@@ -15,7 +15,7 @@ export default function HowItWorksPage() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6 }}
                 >
-                    <h1 className="text-5xl font-bold text-white mb-4">
+                    <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
                         How It Works
                     </h1>
                     <p className="text-white/60 text-xl">
@@ -40,7 +40,7 @@ export default function HowItWorksPage() {
                         Match 3, 4, or 5 numbers to win prizes.
                     </p>
 
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
                         {/* 3 Numbers Match */}
                         <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-6 text-center">
                             <div className="text-6xl font-bold text-green-300 mb-2">3</div>
@@ -103,7 +103,7 @@ export default function HowItWorksPage() {
 
                 {/* SECTION 3 - SUBSCRIPTION PLANS */}
                 <motion.div
-                    className="grid grid-cols-1 md:grid-cols-2 gap-6"
+                    className="grid grid-cols-1 sm:grid-cols-2 gap-6"
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}

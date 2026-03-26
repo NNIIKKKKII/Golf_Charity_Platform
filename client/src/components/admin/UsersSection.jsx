@@ -35,8 +35,8 @@ export default function UsersSection() {
                 </span>
             </h2>
 
-            <div className="overflow-x-auto">
-                <table className="w-full text-sm">
+            <div className="overflow-x-auto w-full">
+                <table className="w-full text-sm min-w-[500px]">
                     <thead>
                         <tr className="text-white/60 border-b border-white/20">
                             <th className="text-left py-3 pr-4">Email</th>

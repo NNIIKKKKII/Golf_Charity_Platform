@@ -61,7 +61,7 @@ export default function WinningsSection() {
                 <div className="space-y-4">
                     {winnings.map((w) => (
                         <div key={w.id} className="bg-white/5 backdrop-blur-sm rounded-xl p-4">
-                            <div className="flex items-center justify-between mb-3">
+                            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-3 gap-2">
                                 <div>
                                     <p className="text-white font-semibold">
                                         {w.match_type}-Number Match

@@ -9,10 +9,10 @@ export default function HomePage() {
             <Navbar />
 
             {/* Hero Section */}
-            <section className="min-h-screen flex flex-col items-center justify-center px-6 relative">
+            <section className="min-h-screen flex flex-col items-center justify-center px-4 md:px-6 relative">
                 <div className="text-center">
                     <motion.h1
-                        className="text-6xl md:text-8xl font-bold mb-6"
+                        className="text-4xl md:text-6xl lg:text-8xl font-bold mb-6"
                         initial="hidden"
                         animate="visible"
                         variants={{
@@ -67,7 +67,7 @@ export default function HomePage() {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 1 }}
-                        className="flex items-center justify-center gap-4 flex-wrap"
+                        className="flex flex-col sm:flex-row items-center justify-center gap-4 flex-wrap"
                     >
                         <motion.div
                             whileHover={{ scale: 1.05, rotate: [0, -1, 1, -1, 0] }}
@@ -110,13 +110,13 @@ export default function HomePage() {
             </section>
 
             {/* Stats Bar */}
-            <section className="max-w-7xl mx-auto px-6 py-20">
+            <section className="max-w-7xl mx-auto px-4 md:px-6 py-20">
                 <motion.div
                     initial={{ opacity: 0, y: 40 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6 }}
-                    className="grid md:grid-cols-3 gap-6"
+                    className="grid grid-cols-1 md:grid-cols-3 gap-6"
                 >
                     {[
                         { icon: '🏌️', number: '2,400+', label: 'Players' },
@@ -140,11 +140,11 @@ export default function HomePage() {
             </section>
 
             {/* How it Works */}
-            <section className="max-w-7xl mx-auto px-6 py-20">
+            <section className="max-w-7xl mx-auto px-4 md:px-6 py-20">
                 <h2 className="text-4xl font-bold text-white text-center mb-16">
                     How it works
                 </h2>
-                <div className="grid md:grid-cols-3 gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                     {[
                         {
                             step: '01',
@@ -179,11 +179,11 @@ export default function HomePage() {
             </section>
 
             {/* Prize Pool Breakdown */}
-            <section className="max-w-7xl mx-auto px-6 py-20">
+            <section className="max-w-7xl mx-auto px-4 md:px-6 py-20">
                 <h2 className="text-4xl font-bold text-white text-center mb-16">
                     Prize Pool Breakdown
                 </h2>
-                <div className="grid md:grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                     {[
                         { match: '5 Numbers', share: '40%', note: 'Jackpot rolls over', color: 'amber' },
                         { match: '4 Numbers', share: '35%', note: 'Split among winners', color: 'white' },
@@ -210,12 +210,12 @@ export default function HomePage() {
             </section>
 
             {/* Charity Section */}
-            <section className="max-w-7xl mx-auto px-6 py-20">
+            <section className="max-w-7xl mx-auto px-4 md:px-6 py-20">
                 <motion.div
                     initial={{ opacity: 0, y: 40 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-12 border-l-4 border-l-green-300"
+                    className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 md:p-12 border-l-4 border-l-green-300"
                 >
                     <h2 className="text-4xl font-bold text-green-300 mb-6">
                         Making a difference

@@ -28,7 +28,7 @@ export default function SignupPage() {
                     initial={{ y: 40, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ duration: 0.5 }}
-                    className="w-full max-w-md bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl p-10"
+                    className="w-full max-w-md bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl p-6 md:p-10 mx-4"
                 >
                     <h1 className="text-3xl font-bold text-white mb-2">Create Account</h1>
                     <p className="text-white/60 mb-8">Join the platform and start playing</p>

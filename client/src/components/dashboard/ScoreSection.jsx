@@ -83,7 +83,7 @@ export default function ScoreSection() {
             )}
 
             {/* Add score form */}
-            <form onSubmit={handleAddScore} className="flex gap-3 mb-6">
+            <form onSubmit={handleAddScore} className="flex flex-col sm:flex-row gap-3 mb-6">
                 <input
                     type="number"
                     min="1"
@@ -104,7 +104,7 @@ export default function ScoreSection() {
                 <motion.button
                     type="submit"
                     disabled={adding}
-                    className="bg-white/15 backdrop-blur-sm border border-white/30 text-white font-semibold px-4 py-2 rounded-xl disabled:opacity-50 text-sm"
+                    className="w-full sm:w-auto bg-white/15 backdrop-blur-sm border border-white/30 text-white font-semibold px-4 py-2 rounded-xl disabled:opacity-50 text-sm"
                     style={{ boxShadow: '0 0 20px rgba(245,158,11,0.3)' }}
                     whileHover={{ scale: 1.05, rotate: [0, -1, 1, -1, 0] }}
                     whileTap={{ scale: 0.97 }}

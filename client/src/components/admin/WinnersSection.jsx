@@ -55,7 +55,7 @@ export default function WinnersSection() {
                 <div className="space-y-4">
                     {winners.map((w) => (
                         <div key={w.id} className="bg-white/5 backdrop-blur-sm rounded-xl p-4">
-                            <div className="flex items-center justify-between mb-3">
+                            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-3 gap-2">
                                 <div>
                                     <p className="text-white font-semibold">
                                         {w.profiles?.email}
@@ -100,7 +100,7 @@ export default function WinnersSection() {
                             )}
 
                             {/* Admin actions */}
-                            <div className="flex gap-2 mt-3">
+                            <div className="flex flex-wrap gap-2 mt-3">
                                 {w.verification_status === 'pending' && w.proof_url && (
                                     <>
                                         <motion.button

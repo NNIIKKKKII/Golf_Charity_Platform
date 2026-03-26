@@ -17,8 +17,8 @@ assignment for Digital Heroes.
 ## Test Credentials
 
 **Subscriber Account**
-- Email: [EMAIL_ADDRESS]
-- Password: [PASSWORD]
+- Email: [dgheroestrainee@gmail.com]
+- Password: [dgheroestrainee]
 
 **Admin Account**
 - Email: digitalheroesadmin@gmail.com
@@ -251,4 +251,4 @@ npm run dev
 
 ---
 
-Built by Nikki for Digital Heroes Full-Stack Trainee Selection — March 2026
+Built by Nikhil Pareeshwad for Digital Heroes Full-Stack Trainee Selection — March 2026
