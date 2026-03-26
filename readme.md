@@ -8,21 +8,21 @@ assignment for Digital Heroes.
 
 ## Live Demo
 
-- **Frontend:** [your-vercel-url]
-- **Backend:** [your-render-url]
-- **Database:** [your-supabase-url]
+- **Frontend:** [https://golf-charity-platform-gold.vercel.app]
+- **Backend:** [https://golf-charity-platform-uqbe.onrender.com]
+- **Database:** [https://iyxevrrwcyoncopnpked.supabase.co]
 - **github:** [https://github.com/NNIIKKKKII/Golf_Charity_Platform]
 ---
 
 ## Test Credentials
 
 **Subscriber Account**
-- Email: test@gmail.com
-- Password: Test1234!
+- Email: [EMAIL_ADDRESS]
+- Password: [PASSWORD]
 
 **Admin Account**
-- Email: admin@gmail.com
-- Password: admin1234!
+- Email: digitalheroesadmin@gmail.com
+- Password: dgheroesadmin
 
 ---
 
